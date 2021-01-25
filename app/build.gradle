@@ -8,8 +8,8 @@ android {
 
     defaultConfig {
         applicationId "edu.neu.madcourse.numad21s_yutinggan"
-        minSdkVersion 27
-        targetSdkVersion 30
+        minSdkVersion 19
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
