@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21SYutingGan">
         <activity
+            android:name=".AboutMeActivity"
+            android:label="@string/title_activity_about_me"
+            android:theme="@style/Theme.NUMAD21SYutingGan.NoActionBar"></activity>
+        <activity
             android:name=".ClickyActivity"
             android:label="@string/title_activity_clicky"
-            android:theme="@style/Theme.NUMAD21SYutingGan.NoActionBar"></activity>
+            android:theme="@style/Theme.NUMAD21SYutingGan.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

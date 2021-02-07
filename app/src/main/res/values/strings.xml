@@ -3,11 +3,10 @@
     <string name="about">About</string>
     <string name="title_activity_clicky">ClickyActivity</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="press_letter">Press letter</string>
+    <string name="name">Yuting Gan</string>
+    <string name="email">gan.yut@northeastern.edu</string>
+    <string name="title_activity_about_me">AboutMeActivity</string>
+    <string name="yuting_gan">Yuting Gan</string>
+    <string name="gan_yut_northeastern_edu">gan.yut@northeastern.edu</string>
 </resources>

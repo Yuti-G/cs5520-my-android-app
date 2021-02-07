@@ -3,26 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="edu.neu.madcourse.numad21s_yutinggan.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+    app:startDestination="@id/mainActivity">
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="edu.neu.madcourse.numad21s_yutinggan.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="edu.neu.madcourse.numad21s_yutinggan.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+            android:id="@+id/action_mainActivity_to_aboutMeActivity"
+            app:destination="@id/aboutMeActivity" />
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+            android:id="@+id/action_mainActivity_to_clickyActivity"
+            app:destination="@id/clickyActivity" />
+    </activity>
+    <activity
+        android:id="@+id/aboutMeActivity"
+        android:name="edu.neu.madcourse.numad21s_yutinggan.AboutMeActivity"
+        android:label="activity_about_me"
+        tools:layout="@layout/activity_about_me" />
+    <activity
+        android:id="@+id/clickyActivity"
+        android:name="edu.neu.madcourse.numad21s_yutinggan.ClickyActivity"
+        android:label="activity_clicky"
+        tools:layout="@layout/activity_clicky" />
 </navigation>
