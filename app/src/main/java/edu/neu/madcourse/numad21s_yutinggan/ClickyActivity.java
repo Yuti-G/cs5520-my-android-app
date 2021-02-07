@@ -19,7 +19,7 @@ public class ClickyActivity extends AppCompatActivity {
     private Button buttonD;
     private Button buttonE;
     private Button buttonF;
-    private String clickyPressedText;
+    private static String clickyPressedText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
