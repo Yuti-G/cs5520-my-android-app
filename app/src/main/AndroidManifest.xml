@@ -31,6 +31,7 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_clicky"
             android:theme="@style/Theme.NUMAD21SYutingGan.NoActionBar" />
+
     </application>
 
 </manifest>
