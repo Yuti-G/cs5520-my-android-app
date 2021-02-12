@@ -3,12 +3,14 @@ package edu.neu.madcourse.numad21s_yutinggan;
 public class ItemCard implements ItemClickListener {
 
     private final int imageSource;
-    private final String url;
+    private String title;
+    private String url;
 
 
     //Constructor
-    public ItemCard(int imageSource, String url) {
+    public ItemCard(int imageSource, String title, String url) {
         this.imageSource = imageSource;
+        this.title = title;
         this.url = url;
 
     }
@@ -18,10 +20,15 @@ public class ItemCard implements ItemClickListener {
         return imageSource;
     }
 
+    public String getTitle() {return title; }
+
 
     public String getItemName() {
         return url;
     }
+
+
+
 
 
     @Override
@@ -33,7 +40,7 @@ public class ItemCard implements ItemClickListener {
     @Override
     public void onCheckBoxClick(int position) {
 
-
     }
+
 
 }

@@ -28,25 +28,37 @@
 
         <TextView
             android:id="@+id/item_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="246dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="28dp"
             android:text="@string/item_name"
             android:textColor="@android:color/black"
             android:textSize="15sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/item_icon"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/checkbox"
-            android:layout_width="57dp"
-            android:layout_height="46dp"
+            android:id="@+id/editButton"
+            android:layout_width="68dp"
+            android:layout_height="43dp"
             android:layout_marginEnd="10dp"
-            android:text="Go"
+            android:text="Edit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="94dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:text="item_title"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/item_icon"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

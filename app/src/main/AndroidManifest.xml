@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21SYutingGan">
         <activity
+            android:name=".EditActivity"
+            android:label="@string/title_activity_edit"
+            android:theme="@style/Theme.NUMAD21SYutingGan.NoActionBar"></activity>
+        <activity
             android:name=".LinkCollector"
             android:label="@string/title_activity_link_collector"
             android:theme="@style/Theme.NUMAD21SYutingGan.NoActionBar" />
@@ -31,7 +35,6 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_clicky"
             android:theme="@style/Theme.NUMAD21SYutingGan.NoActionBar" />
-
     </application>
 
 </manifest>
