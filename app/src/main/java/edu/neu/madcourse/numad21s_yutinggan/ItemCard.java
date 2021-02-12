@@ -3,14 +3,14 @@ package edu.neu.madcourse.numad21s_yutinggan;
 public class ItemCard implements ItemClickListener {
 
     private final int imageSource;
-    private final String itemName;
-    private boolean isChecked;
+    private final String url;
+
 
     //Constructor
-    public ItemCard(int imageSource, String itemName,boolean isChecked) {
+    public ItemCard(int imageSource, String url) {
         this.imageSource = imageSource;
-        this.itemName = itemName;
-        this.isChecked = isChecked;
+        this.url = url;
+
     }
 
     //Getters for the imageSource, itemName and itemDesc
@@ -20,22 +20,20 @@ public class ItemCard implements ItemClickListener {
 
 
     public String getItemName() {
-        return itemName;
-    }
-
-    public boolean getStatus() {
-        return isChecked;
+        return url;
     }
 
 
     @Override
     public void onItemClick(int position) {
-        isChecked = !isChecked;
+
+
     }
 
     @Override
     public void onCheckBoxClick(int position) {
-        isChecked = !isChecked;
+
+
     }
 
 }

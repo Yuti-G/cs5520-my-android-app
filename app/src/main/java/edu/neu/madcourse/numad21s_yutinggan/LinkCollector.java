@@ -1,5 +1,7 @@
 package edu.neu.madcourse.numad21s_yutinggan;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,7 +47,7 @@ public class LinkCollector extends AppCompatActivity {
                 String itemName = urlText.getText().toString();
 
                 int pos = 0;
-                itemList.add(pos, new ItemCard(R.drawable.empty, itemName, false));
+                itemList.add(pos, new ItemCard(R.drawable.empty, itemName));
                 urlText.setText("");
                 Toast.makeText(LinkCollector.this, "Add a URL", Toast.LENGTH_SHORT).show();
 
@@ -90,7 +92,7 @@ public class LinkCollector extends AppCompatActivity {
             // put itemName information into instance
             outState.putString(KEY_OF_INSTANCE + i + "1", itemList.get(i).getItemName());
             // put isChecked information into instance
-            outState.putBoolean(KEY_OF_INSTANCE + i + "2", itemList.get(i).getStatus());
+
         }
         super.onSaveInstanceState(outState);
 
@@ -121,7 +123,7 @@ public class LinkCollector extends AppCompatActivity {
                     if (isChecked) {
                         itemName = itemName.substring(0, itemName.lastIndexOf("("));
                     }
-                    ItemCard itemCard = new ItemCard(imgId, itemName,isChecked);
+                    ItemCard itemCard = new ItemCard(imgId, itemName);
 
                     itemList.add(itemCard);
                 }
@@ -129,9 +131,9 @@ public class LinkCollector extends AppCompatActivity {
         }
         // The first time to open this Activity
         else {
-            ItemCard item1 = new ItemCard(R.drawable.pic_gmail_01, "Gmail", false);
-            ItemCard item2 = new ItemCard(R.drawable.pic_google_01, "Google", false);
-            ItemCard item3 = new ItemCard(R.drawable.pic_youtube_01, "Youtube", false);
+            ItemCard item1 = new ItemCard(R.drawable.pic_gmail_01, "Gmail");
+            ItemCard item2 = new ItemCard(R.drawable.pic_google_01, "Google");
+            ItemCard item3 = new ItemCard(R.drawable.pic_youtube_01, "Youtube");
             itemList.add(item1);
             itemList.add(item2);
             itemList.add(item3);
@@ -152,6 +154,15 @@ public class LinkCollector extends AppCompatActivity {
                 //attributions bond to the item has been changed
                 itemList.get(position).onItemClick(position);
 
+                String url = itemList.get(position).getItemName();
+                if (url.startsWith("https://") || url.startsWith("http://")) {
+                    Uri uri = Uri.parse(url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(LinkCollector.this,"Invalid Url", Toast.LENGTH_SHORT).show();
+                }
+
                 rviewAdapter.notifyItemChanged(position);
             }
 
@@ -159,6 +170,17 @@ public class LinkCollector extends AppCompatActivity {
             public void onCheckBoxClick(int position) {
                 //attributions bond to the item has been changed
                 itemList.get(position).onCheckBoxClick(position);
+
+                String url = itemList.get(position).getItemName();
+                if (url.startsWith("https://") || url.startsWith("http://")) {
+                    Uri uri = Uri.parse(url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(LinkCollector.this, "Invalid Url", Toast.LENGTH_SHORT).show();
+                }
+
+
 
                 rviewAdapter.notifyItemChanged(position);
             }
