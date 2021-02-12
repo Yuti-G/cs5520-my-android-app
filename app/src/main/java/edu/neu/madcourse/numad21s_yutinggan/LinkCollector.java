@@ -3,6 +3,7 @@ package edu.neu.madcourse.numad21s_yutinggan;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -12,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class LinkCollector extends AppCompatActivity {
     //Creating the essential parts needed for a Recycler view to work: RecyclerView, Adapter, LayoutManager
@@ -23,6 +23,7 @@ public class LinkCollector extends AppCompatActivity {
     private RviewAdapter rviewAdapter;
     private RecyclerView.LayoutManager rLayoutManger;
     private Button addButton;
+    private TextView urlText;
 
     private static final String KEY_OF_INSTANCE = "KEY_OF_INSTANCE";
     private static final String NUMBER_OF_ITEMS = "NUMBER_OF_ITEMS";
@@ -35,12 +36,20 @@ public class LinkCollector extends AppCompatActivity {
 
         init(savedInstanceState);
 
+        urlText = findViewById(R.id.inputText);
+
         addButton = findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String itemName = urlText.getText().toString();
+
                 int pos = 0;
-                addItem(pos);
+                itemList.add(pos, new ItemCard(R.drawable.empty, itemName, false));
+                urlText.setText("");
+                Toast.makeText(LinkCollector.this, "Add a URL", Toast.LENGTH_SHORT).show();
+
+                rviewAdapter.notifyItemInserted(pos);
             }
         });
 
@@ -80,10 +89,8 @@ public class LinkCollector extends AppCompatActivity {
             outState.putInt(KEY_OF_INSTANCE + i + "0", itemList.get(i).getImageSource());
             // put itemName information into instance
             outState.putString(KEY_OF_INSTANCE + i + "1", itemList.get(i).getItemName());
-            // put itemDesc information into instance
-            outState.putString(KEY_OF_INSTANCE + i + "2", itemList.get(i).getItemDesc());
             // put isChecked information into instance
-            outState.putBoolean(KEY_OF_INSTANCE + i + "3", itemList.get(i).getStatus());
+            outState.putBoolean(KEY_OF_INSTANCE + i + "2", itemList.get(i).getStatus());
         }
         super.onSaveInstanceState(outState);
 
@@ -107,25 +114,24 @@ public class LinkCollector extends AppCompatActivity {
                 for (int i = 0; i < size; i++) {
                     Integer imgId = savedInstanceState.getInt(KEY_OF_INSTANCE + i + "0");
                     String itemName = savedInstanceState.getString(KEY_OF_INSTANCE + i + "1");
-                    String itemDesc = savedInstanceState.getString(KEY_OF_INSTANCE + i + "2");
-                    boolean isChecked = savedInstanceState.getBoolean(KEY_OF_INSTANCE + i + "3");
+                    boolean isChecked = savedInstanceState.getBoolean(KEY_OF_INSTANCE + i + "2");
 
                     // We need to make sure names such as "XXX(checked)" will not duplicate
                     // Use a tricky way to solve this problem, not the best though
                     if (isChecked) {
                         itemName = itemName.substring(0, itemName.lastIndexOf("("));
                     }
-                    ItemCard itemCard = new ItemCard(imgId, itemName, itemDesc, isChecked);
+                    ItemCard itemCard = new ItemCard(imgId, itemName,isChecked);
 
                     itemList.add(itemCard);
                 }
             }
         }
-        // The first time to opne this Activity
+        // The first time to open this Activity
         else {
-            ItemCard item1 = new ItemCard(R.drawable.pic_gmail_01, "Gmail", "Example description", false);
-            ItemCard item2 = new ItemCard(R.drawable.pic_google_01, "Google", "Example description", false);
-            ItemCard item3 = new ItemCard(R.drawable.pic_youtube_01, "Youtube", "Example description", false);
+            ItemCard item1 = new ItemCard(R.drawable.pic_gmail_01, "Gmail", false);
+            ItemCard item2 = new ItemCard(R.drawable.pic_google_01, "Google", false);
+            ItemCard item3 = new ItemCard(R.drawable.pic_youtube_01, "Youtube", false);
             itemList.add(item1);
             itemList.add(item2);
             itemList.add(item3);
@@ -134,8 +140,6 @@ public class LinkCollector extends AppCompatActivity {
     }
 
     private void createRecyclerView() {
-
-
         rLayoutManger = new LinearLayoutManager(this);
 
         recyclerView = findViewById(R.id.recycler_view);
@@ -167,10 +171,4 @@ public class LinkCollector extends AppCompatActivity {
 
     }
 
-    private void addItem(int position) {
-        itemList.add(position, new ItemCard(R.drawable.empty, "No Logo item", "Item id: " + Math.abs(new Random().nextInt(100000)), false));
-        Toast.makeText(LinkCollector.this, "Add an item", Toast.LENGTH_SHORT).show();
-
-        rviewAdapter.notifyItemInserted(position);
-    }
 }

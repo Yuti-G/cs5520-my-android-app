@@ -21,6 +21,5 @@
     <string name="title_activity_edit">EditActivity</string>
 
     <string name="item_name">Item name</string>
-    <string name="item_description">Description</string>
     <string name="description">This image acts as an icon.</string>
 </resources>

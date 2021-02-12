@@ -4,14 +4,12 @@ public class ItemCard implements ItemClickListener {
 
     private final int imageSource;
     private final String itemName;
-    private final String itemDesc;
     private boolean isChecked;
 
     //Constructor
-    public ItemCard(int imageSource, String itemName, String itemDesc,boolean isChecked) {
+    public ItemCard(int imageSource, String itemName,boolean isChecked) {
         this.imageSource = imageSource;
         this.itemName = itemName;
-        this.itemDesc = itemDesc;
         this.isChecked = isChecked;
     }
 
@@ -20,12 +18,9 @@ public class ItemCard implements ItemClickListener {
         return imageSource;
     }
 
-    public String getItemDesc() {
-        return itemDesc;
-    }
 
     public String getItemName() {
-        return itemName + (isChecked ? "(checked)" : "");
+        return itemName;
     }
 
     public boolean getStatus() {
