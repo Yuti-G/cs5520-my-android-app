@@ -91,11 +91,11 @@ public class LinkCollector extends AppCompatActivity {
         // This is only a possible way to do, please find your own way to generate the key
         for (int i = 0; i < size; i++) {
             // put image information id into instance
-            outState.putInt(KEY_OF_INSTANCE + i + "0", itemList.get(i).getImageSource());
+//            outState.putInt(KEY_OF_INSTANCE + i + "0", itemList.get(i).getImageSource());
             // put title information into instance
-            outState.putString(KEY_OF_INSTANCE + i + "1", itemList.get(i).getTitle());
+            outState.putString(KEY_OF_INSTANCE + i + "0", itemList.get(i).getTitle());
             // put url information into instance
-            outState.putString(KEY_OF_INSTANCE + i + "2", itemList.get(i).getItemName());
+            outState.putString(KEY_OF_INSTANCE + i + "1", itemList.get(i).getItemName());
 
         }
         super.onSaveInstanceState(outState);
@@ -118,19 +118,26 @@ public class LinkCollector extends AppCompatActivity {
 
                 // Retrieve keys we stored in the instance
                 for (int i = 0; i < size; i++) {
-                    Integer imgId = savedInstanceState.getInt(KEY_OF_INSTANCE + i + "0");
-                    String title = savedInstanceState.getString(KEY_OF_INSTANCE + i + "1");
-                    String itemName = savedInstanceState.getString(KEY_OF_INSTANCE + i + "2");
+//                    Integer imgId = savedInstanceState.getInt(KEY_OF_INSTANCE + i + "0");
+                    String title = savedInstanceState.getString(KEY_OF_INSTANCE + i + "0");
+                    String itemName = savedInstanceState.getString(KEY_OF_INSTANCE + i + "1");
 
 
                     // We need to make sure names such as "XXX(checked)" will not duplicate
                     // Use a tricky way to solve this problem, not the best though
 
-                    ItemCard itemCard = new ItemCard(imgId, title, itemName);
+                    ItemCard itemCard = new ItemCard(title, itemName);
 
                     itemList.add(itemCard);
                 }
             }
+        } else {
+            ItemCard item1 = new ItemCard("Gmail", "http://");
+            ItemCard item2 = new ItemCard("Google", "http://");
+            ItemCard item3 = new ItemCard("Youtube", "http://");
+            itemList.add(item1);
+            itemList.add(item2);
+            itemList.add(item3);
         }
     }
 
@@ -174,7 +181,7 @@ public class LinkCollector extends AppCompatActivity {
             }
 
             @Override
-            public void onCheckBoxClick(int position) {
+            public void onEditButtonClick(int position) {
                 //attributions bond to the item has been changed
                 itemList.get(position).onItemClick(position);
 
@@ -205,7 +212,7 @@ public class LinkCollector extends AppCompatActivity {
             String url = data.getStringExtra(KEY_URL_TEXT);
             int position = data.getExtras().getInt(KEY_ITEM_POSITION);
 
-            ItemCard cur = new ItemCard(R.drawable.empty, title, url);
+            ItemCard cur = new ItemCard(title, url);
 
             itemList.set(position, cur);
             rviewAdapter.notifyItemChanged(position);
@@ -219,7 +226,7 @@ public class LinkCollector extends AppCompatActivity {
     }
 
     private void addItem(int position) {
-        itemList.add(position, new ItemCard(R.drawable.empty, "Name", "http:// "));
+        itemList.add(position, new ItemCard( "Name", "http:// "));
         Toast.makeText(LinkCollector.this, "Add an item", Toast.LENGTH_SHORT).show();
 
         rviewAdapter.notifyItemInserted(position);
