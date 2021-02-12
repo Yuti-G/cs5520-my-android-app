@@ -48,8 +48,9 @@ public class LinkCollector extends AppCompatActivity {
 
                 int pos = 0;
                 itemList.add(pos, new ItemCard(R.drawable.empty, itemName));
-                urlText.setText("");
+
                 Toast.makeText(LinkCollector.this, "Add a URL", Toast.LENGTH_SHORT).show();
+                urlText.setText("");
 
                 rviewAdapter.notifyItemInserted(pos);
             }
@@ -130,14 +131,14 @@ public class LinkCollector extends AppCompatActivity {
             }
         }
         // The first time to open this Activity
-        else {
-            ItemCard item1 = new ItemCard(R.drawable.pic_gmail_01, "Gmail");
-            ItemCard item2 = new ItemCard(R.drawable.pic_google_01, "Google");
-            ItemCard item3 = new ItemCard(R.drawable.pic_youtube_01, "Youtube");
-            itemList.add(item1);
-            itemList.add(item2);
-            itemList.add(item3);
-        }
+//        else {
+//            ItemCard item1 = new ItemCard(R.drawable.pic_gmail_01, "Gmail");
+//            ItemCard item2 = new ItemCard(R.drawable.pic_google_01, "Google");
+//            ItemCard item3 = new ItemCard(R.drawable.pic_youtube_01, "Youtube");
+//            itemList.add(item1);
+//            itemList.add(item2);
+//            itemList.add(item3);
+//        }
 
     }
 
