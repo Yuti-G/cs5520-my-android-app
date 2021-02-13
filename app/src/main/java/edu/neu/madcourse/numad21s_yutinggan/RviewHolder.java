@@ -15,10 +15,8 @@ public class RviewHolder extends RecyclerView.ViewHolder {
 
     public RviewHolder(View itemView, final ItemClickListener listener) {
         super(itemView);
-//        itemIcon = itemView.findViewById(R.id.item_icon);
         title =  itemView.findViewById(R.id.item_title);
         url = itemView.findViewById(R.id.item_name);
-//
         editButton = itemView.findViewById(R.id.editButton);
 
 
@@ -35,21 +33,6 @@ public class RviewHolder extends RecyclerView.ViewHolder {
                 }
             }
         });
-
-        url.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-
-                if (listener != null) {
-                    int position = getLayoutPosition();
-                    if (position != RecyclerView.NO_POSITION) {
-                        listener.onEditButtonClick(position);
-                    }
-
-                }
-            }
-        });
-
 
 
         itemView.setOnClickListener(new View.OnClickListener() {
