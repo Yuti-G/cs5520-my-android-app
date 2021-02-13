@@ -207,7 +207,7 @@ public class LinkCollector extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
+        if (resultCode == RESULT_OK  && requestCode == EDIT_TEXT_CODE) {
             String title = data.getStringExtra(KEY_Title_TEXT);
             String url = data.getStringExtra(KEY_URL_TEXT);
             int position = data.getExtras().getInt(KEY_ITEM_POSITION);

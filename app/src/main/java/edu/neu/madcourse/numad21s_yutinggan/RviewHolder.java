@@ -16,7 +16,7 @@ public class RviewHolder extends RecyclerView.ViewHolder {
     public RviewHolder(View itemView, final ItemClickListener listener) {
         super(itemView);
 //        itemIcon = itemView.findViewById(R.id.item_icon);
-//        title =  itemView.findViewById(R.id.item_title);
+        title =  itemView.findViewById(R.id.item_title);
         url = itemView.findViewById(R.id.item_name);
 //
         editButton = itemView.findViewById(R.id.editButton);

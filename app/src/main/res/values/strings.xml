@@ -20,6 +20,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_edit">EditActivity</string>
 
-    <string name="item_name">Item name</string>
+<!--    <string name="item_name">Item name</string>-->
     <string name="description">This image acts as an icon.</string>
 </resources>
