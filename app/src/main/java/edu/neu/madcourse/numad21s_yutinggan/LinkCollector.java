@@ -217,7 +217,7 @@ public class LinkCollector extends AppCompatActivity {
     }
 
     private void addItem(int position) {
-        itemList.add(position, new ItemCard( "Name", "http:// "));
+        itemList.add(position, new ItemCard( "", ""));
         Toast.makeText(LinkCollector.this, "Add an item", Toast.LENGTH_SHORT).show();
 
         rviewAdapter.notifyItemInserted(position);
