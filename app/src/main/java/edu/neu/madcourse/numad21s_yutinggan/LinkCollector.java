@@ -34,8 +34,8 @@ public class LinkCollector extends AppCompatActivity {
     private static final String KEY_OF_INSTANCE = "KEY_OF_INSTANCE";
     private static final String NUMBER_OF_ITEMS = "NUMBER_OF_ITEMS";
 
-    public static final String KEY_Title_TEXT = "Name";
-    public static final String KEY_URL_TEXT = "http://";
+    public static final String KEY_Title_TEXT = "item_title";
+    public static final String KEY_URL_TEXT = "item_name";
     public static final String KEY_ITEM_POSITION = "item_position";
     public static final int EDIT_TEXT_CODE = 20;
 
@@ -131,14 +131,15 @@ public class LinkCollector extends AppCompatActivity {
                     itemList.add(itemCard);
                 }
             }
-        } else {
-            ItemCard item1 = new ItemCard("Gmail", "http://");
-            ItemCard item2 = new ItemCard("Google", "http://");
-            ItemCard item3 = new ItemCard("Youtube", "http://");
-            itemList.add(item1);
-            itemList.add(item2);
-            itemList.add(item3);
         }
+//        else {
+//            ItemCard item1 = new ItemCard("Gmail", "http://");
+//            ItemCard item2 = new ItemCard("Google", "http://");
+//            ItemCard item3 = new ItemCard("Youtube", "http://");
+//            itemList.add(item1);
+//            itemList.add(item2);
+//            itemList.add(item3);
+//        }
     }
 
     private void createRecyclerView() {
@@ -150,16 +151,6 @@ public class LinkCollector extends AppCompatActivity {
         rviewAdapter = new RviewAdapter(itemList);
 
 
-
-//        if(itemList.size() > 0) {
-//            editButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent i = new Intent(LinkCollector.this, EditActivity.class);
-//                }
-//            });
-//
-//        }
 
 
         ItemClickListener itemClickListener = new ItemClickListener() {

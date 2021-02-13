@@ -26,8 +26,9 @@ public class EditActivity extends AppCompatActivity {
         urlText = findViewById(R.id.inputText);
         title = findViewById(R.id.titleText);
 
-//        urlText.setText(getIntent().getStringExtra(LinkCollector.KEY_URL_TEXT));
-//        title.setText(getIntent().getStringExtra(LinkCollector.KEY_Title_TEXT));
+        // bind KEY to text
+        urlText.setText(getIntent().getStringExtra(LinkCollector.KEY_URL_TEXT));
+        title.setText(getIntent().getStringExtra(LinkCollector.KEY_Title_TEXT));
 
 
         saveURLButton.setOnClickListener(new View.OnClickListener() {
