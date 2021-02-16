@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21SYutingGan">
         <activity
+            android:name=".Locator"
+            android:label="@string/title_activity_locator"
+            android:theme="@style/Theme.NUMAD21SYutingGan.NoActionBar"></activity>
+        <activity
             android:name=".EditActivity"
             android:label="@string/title_activity_edit"
-            android:theme="@style/Theme.NUMAD21SYutingGan.NoActionBar"></activity>
+            android:theme="@style/Theme.NUMAD21SYutingGan.NoActionBar" />
         <activity
             android:name=".LinkCollector"
             android:label="@string/title_activity_link_collector"

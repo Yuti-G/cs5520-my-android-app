@@ -1,17 +1,17 @@
 package edu.neu.madcourse.numad21s_yutinggan;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.content.Intent;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     public Button aboutButton;
     public Button clickyButton;
+    public Button locatorButton;
     public Button linkCollectorButton;
 
     @Override
@@ -45,6 +45,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(linkCollectorIntent);
             }
         });
+
+        locatorButton = findViewById(R.id.button_locator);
+        locatorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent locatorIntent = new Intent(MainActivity.this, Locator.class);
+                startActivity(locatorIntent);
+            }
+        });
+
     }
 
 
