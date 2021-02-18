@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.neu.madcourse.numad21s_yutinggan">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -39,6 +40,8 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_clicky"
             android:theme="@style/Theme.NUMAD21SYutingGan.NoActionBar" />
+
     </application>
+
 
 </manifest>
