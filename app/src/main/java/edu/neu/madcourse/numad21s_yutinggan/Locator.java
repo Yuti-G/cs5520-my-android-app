@@ -28,7 +28,6 @@ public class Locator extends AppCompatActivity {
     String latitude, longitude;
     private static final int REQUEST_LOCATION = 1;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,15 +90,4 @@ public class Locator extends AppCompatActivity {
             }
         }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
