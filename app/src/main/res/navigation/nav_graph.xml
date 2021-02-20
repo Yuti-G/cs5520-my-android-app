@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_mainActivity_to_linkCollector"
             app:destination="@id/linkCollector" />
+        <action
+            android:id="@+id/action_mainActivity_to_locator2"
+            app:destination="@id/locator2" />
     </activity>
     <activity
         android:id="@+id/aboutMeActivity"
@@ -34,4 +37,9 @@
         android:name="edu.neu.madcourse.numad21s_yutinggan.LinkCollector"
         android:label="activity_link_collector"
         tools:layout="@layout/activity_link_collector" />
+    <activity
+        android:id="@+id/locator2"
+        android:name="edu.neu.madcourse.numad21s_yutinggan.Locator"
+        android:label="activity_locator"
+        tools:layout="@layout/activity_locator" />
 </navigation>
