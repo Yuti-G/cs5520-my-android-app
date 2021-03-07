@@ -6,24 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".WebService">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="87dp">
+    <EditText
+        android:id="@+id/URL_editText"
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="https://twitter.com/Northeastern" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/btn_launch"
-        android:layout_width="408dp"
-        android:layout_height="48dp"
-        android:text="LAUNCH WEBSITE"
+        android:layout_width="293dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="60dp"
+        android:hint="Enter a valid city in Massachusetts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="175dp" />
+        app:layout_constraintTop_toTopOf="parent"></EditText>
+
+    <Button
+        android:id="@+id/callWebserviceButtonHandler"
+        android:layout_width="320dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="28dp"
+        android:text="PING WEB SERVICE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/URL_editText" />
+
+    <TextView
+        android:id="@+id/result_textview"
+        android:layout_width="234dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="20dp"
+        android:hint="Loading the first zip code for the city"
+        android:singleLine="false"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/callWebserviceButtonHandler"
+        app:layout_constraintVertical_bias="0.037" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

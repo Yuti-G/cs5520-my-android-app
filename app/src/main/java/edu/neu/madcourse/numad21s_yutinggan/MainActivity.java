@@ -16,7 +16,9 @@ public class MainActivity extends AppCompatActivity {
     public Button clickyButton;
     public Button locatorButton;
     public Button linkCollectorButton;
+    public Button sendButton;
     private final int locationPermissionRequestCode = 1;
+    private static String zipCodePlaceResult = "";
 
 
     protected void requestPermission(String permissionType,
@@ -79,8 +81,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        sendButton = findViewById(R.id.btn_send);
+        sendButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent webService = new Intent(MainActivity.this, WebService.class);
+                startActivity(webService);
+            }
+        });
 
 
     }
+
+    public static String getZipCodePlaceResult() {
+        return zipCodePlaceResult;
+    }
+
+    public static void setZipCodePlaceResult(String textToSet) {
+        zipCodePlaceResult = textToSet;
+    }
+
 
 }
